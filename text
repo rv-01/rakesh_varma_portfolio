@@ -1,0 +1,84 @@
+🚀 Initial Thoughts: 2-Week Proof of Concept (PoC) Plan
+In 2 weeks, the goal would be to demonstrate the core capabilities of the Metadata Automation Framework at a working prototype level — covering extraction, basic validation, storage into a graph catalog (Neo4j or MongoDB), and simple API access.
+
+Here’s what could realistically be achieved in 2 weeks:
+
+✅ What Can Be Achieved
+1. Core Metadata Extraction Plugins (Minimum 3)
+Build functional prototypes for:
+
+Source Code Extractor (Python scripts only, using ast).
+
+Documentation Extractor (basic PDF extraction using PyPDF2).
+
+Database Extractor (connect to a sample PostgreSQL DB using SQLAlchemy and extract table/column metadata).
+
+Keep Plugin architecture modular so that new sources (like Java or APIs) can be added later easily.
+
+2. Simple Automated Metadata Pipeline
+Create a basic orchestration script (Python + schedule or simple cron job simulation).
+
+Enable hourly trigger or manual trigger for metadata extraction.
+
+Validate that extracted metadata has basic fields (name, type, source).
+
+3. Knowledge Graph-Based Catalog
+Stand up Neo4j Community Edition (or MongoDB Atlas free tier).
+
+Load extracted metadata as:
+
+Nodes (e.g., functions, tables, documents).
+
+Relationships (e.g., function uses column, document references API).
+
+Implement basic graph queries (like: "find all functions that use customer_id").
+
+4. Lightweight Integration API
+Develop a Flask-based REST API with minimal endpoints:
+
+/metadata/{name} — fetch metadata by name.
+
+/metadata/search?type=function — search metadata by type.
+
+Basic JSON response formatting.
+
+5. Metrics Dashboard (Very Basic)
+Track and log simple metrics:
+
+Number of metadata records extracted.
+
+Time taken for each extraction phase.
+
+Store metrics in a log file or lightweight SQLite DB for now.
+
+🧩 Stretch Goals (Optional If Time Permits)
+Add API Extractor prototype (for 1-2 sample APIs using requests).
+
+Basic enrichment (e.g., tagging “regulatory reporting” manually for few entries).
+
+A basic UI mockup (even simple Swagger UI or Postman collection) for demoing REST API queries.
+
+🔥 Deliverables at End of 2 Weeks
+Working Python-based metadata extractors (3 types).
+
+Populated Knowledge Graph DB (sample metadata).
+
+REST API serving extracted metadata.
+
+Demo script showcasing a sample end-to-end flow (commit Python file ➔ trigger extraction ➔ validate ➔ store in graph ➔ retrieve via API).
+
+Initial metrics report.
+
+Documentation: architecture diagram + next steps for full build-out.
+
+🧠 Risks and Assumptions
+Focus only on Python source code for code extraction (no Java parsing in Phase 1).
+
+No enterprise-grade CI/CD pipeline yet — run scheduled tasks locally.
+
+Use small controlled datasets (small sample PDFs, code, databases) for PoC.
+
+Skip authentication/security for API in the PoC.
+
+✨ In One Line:
+In 2 weeks, we can build a minimal, working prototype demonstrating metadata extraction, validation, graph cataloging, and REST API access, laying the foundation for scaling across Citi’s enterprise systems.
