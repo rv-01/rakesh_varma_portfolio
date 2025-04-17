@@ -1,0 +1,41 @@
+🚀 Additional Resources Required (Realistic if Mostly Done by Me)
+1. People Resources:
+
+Primary Developer:
+
+Myself (leading design, development, and integration).
+
+Light Support (Ad-hoc, if needed):
+
+DevOps/Cloud Engineer (Advisory, 10–20% time):
+Help with initial setup of hosting (Neo4j Aura / MongoDB Atlas) and basic deployment pipelines.
+
+Data Governance SME (Consultation, a few hours total):
+Review business context enrichment rules and align metadata fields to standards.
+
+2. Infrastructure Resources:
+
+Graph Database Service:
+
+Provision a Neo4j Aura (Starter tier) or MongoDB Atlas cluster (Shared tier) for metadata storage.
+
+Python Hosting Environment:
+
+Lightweight server or internal VM (even a single small AWS EC2 instance or Citi VM) to run extractors and REST API.
+
+DevOps Tools:
+
+Access to basic GitHub Actions or Citi’s internal CI/CD tooling to automate pipeline execution.
+
+3. Access and Permissions:
+
+Sample Systems Access:
+
+Access to a few Python codebases, sample PDFs, test APIs, and sample database schemas for building and testing extractors.
+
+API Keys and Credentials:
+
+Service accounts or dummy credentials for development environments.
+
+✨ In One Line:
+Since I will be leading and executing most of the work, I require only minimal DevOps support, lightweight infrastructure (managed DB + small VM), and access to sample systems for extractor development and validation.
