@@ -1,0 +1,71 @@
++---------------------------------------------------------+
+|                   Main Orchestration Pipeline           |
+|   (Scheduler/Trigger initiates metadata extraction)     |
++---------------------------------------------------------+
+                          |
+                          v
+            +-------------------------------+
+            | Load Plugin Configuration File |
+            | (JSON/YAML listing active plugins) |
+            +-------------------------------+
+                          |
+                          v
+      +-------------------------------------+
+      | Dynamically Load Extractor Plugins  |
+      +-------------------------------------+
+         |            |             |            |           |
+         v            v             v            v           v
++----------------+ +----------------+ +----------------+ +----------------+ +----------------+
+| Source Code    | | Database        | | API            | | Documentation  | | CSV Extractor  |
+| Extractor      | | Extractor       | | Extractor      | | Extractor       | |                |
++----------------+ +----------------+ +----------------+ +----------------+ +----------------+
+         |            |             |            |           |
+         v            v             v            v           v
++---------------------------------------------------------------------------------------------+
+|          Collected Metadata (standard format: name, type, source, usage, etc.)               |
++---------------------------------------------------------------------------------------------+
+                          |
+                          v
++-----------------------------------------+
+| Validate and Enrich Metadata Entries    |
+| (Add business context, check required fields) |
++-----------------------------------------+
+                          |
+                          v
++-----------------------------------------+
+| Store Metadata into Knowledge Graph DB  |
+| (Neo4j or MongoDB with Nodes and Edges)  |
++-----------------------------------------+
+                          |
+                          v
++-----------------------------------------+
+| Expose Metadata via Flask REST API      |
+| (/metadata/{name}, /metadata/search)    |
++-----------------------------------------+
+                          |
+                          v
+        +---------------------------------------------+
+        |        End Users / Systems (e.g., Collibra, |
+        |        Solidatus, Data Governance Team)     |
+        +---------------------------------------------+
+
+
+🚀 Simple Flow Summary:
+Trigger ➔ Load Plugins ➔ Extract Metadata ➔ Validate ➔ Store in Graph ➔ Query via API
+
+🧠 Key Points:
+Each plugin is independent and follows a common metadata output structure.
+
+Easy to add new extractors (new data sources) without changing the main pipeline.
+
+Designed to scale horizontally when you add more systems across Citi.
+
+
+✨ Short Example: List of Plugins at Launch
+
+Plugin Type	Module Name	Example Metadata Extracted
+Python Source Code	source_code_extractor.py	Functions, variables, dependencies
+API Metadata	api_extractor.py	API endpoints, fields, response types
+Database Metadata	database_extractor.py	Tables, columns, primary keys
+CSV Files	csv_extractor.py	Column names, types
+PDF Documentation	documentation_extractor.py	Document titles, authors, keywords
