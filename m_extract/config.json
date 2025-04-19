@@ -1,0 +1,32 @@
+{
+    "table_fields_order": [
+        "db_name",
+        "schema_name",
+        "table_name",
+        "column_name",
+        "data_type",
+        "data_length",
+        "nullable",
+        "primary_key"
+    ],
+    "view_fields_order": [
+        "db_name",
+        "schema_name",
+        "view_name",
+        "column_name",
+        "source_table",
+        "source_column",
+        "data_type",
+        "data_length"
+    ],
+    "error_fields_order": [
+        "db_name",
+        "schema_name",
+        "table_name",
+        "column_name",
+        "data_type",
+        "data_length",
+        "nullable",
+        "primary_key"
+    ]
+}
