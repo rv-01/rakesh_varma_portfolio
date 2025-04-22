@@ -1,0 +1,180 @@
+🎯 Top Technical Questions you can ask Palantir
+
+Area	Smart Questions You Can Ask
+Integration & Data Connectivity	1. How does Foundry integrate with our existing data lakes (e.g., Snowflake, Hadoop, Databricks)?
+2. How are schema changes in source systems handled automatically in Palantir models?
+Ontology and Modeling	3. How customizable and extensible is the ontology?
+4. How does Palantir handle evolving entities and relationships without a full rework (e.g., adding new customer types, changing hierarchies)?
+Entity Resolution	5. What techniques does Palantir use for fuzzy matching and entity resolution at scale?
+6. How does it avoid false positives/negatives in customer deduplication across systems?
+Data Governance & Security	7. How are data access controls implemented — at table, row, column, or attribute level?
+8. Can fine-grained audit logs (who accessed what, when) be integrated with our SIEM/SOC tools?
+9. How does Foundry support GDPR/CCPA "right to forget" or "data masking on demand"?
+Scalability & Performance	10. How does Palantir scale when the volume of data triples — horizontally or vertically?
+11. What are typical query latencies for operational (low-latency) use cases?
+Federated vs Centralized Data	12. In a federated model, where is the "working set" computed — source system, Foundry’s cache, or temporary store?
+13. How is data freshness managed across federated sources?
+Operationalization (APIs/Real-time Use)	14. Can the unified customer profiles be queried via APIs in real time?
+15. Can Palantir push outputs back to our operational systems (not just dashboards)?
+Customization and Extensibility	16. How extensible is Palantir Foundry for integrating custom machine learning models, Python scripts, or Spark jobs?
+17. Can we customize UIs/workflows if business processes change?
+Deployment Models & Architecture	18. What deployment models are available: SaaS only, private cloud, hybrid, on-premises?
+19. How are upgrades and patches handled without disrupting critical pipelines?
+Cost and License Model	20. (Important to ask gently) — How is the licensing structured: per user, per data volume, per project?
+21. Are there additional charges for data connectors, APIs, storage, or scaling?
+Migration and Lock-in Risk	22. How easy is it to export data, metadata, and logic if we ever decide to move out of Palantir?
+23. How open is Foundry in terms of interoperability with non-Palantir tools?
+🧠 Bonus "Strategic" Questions (to show you're thinking long-term)
+How does Palantir Foundry align with the principles of Data Mesh (domain ownership, self-serve data infrastructure)?
+
+What are the best practices for building governance around a federated customer master without centralizing all data?
+
+Can Foundry support multi-cloud architectures (AWS + Azure + GCP) if we expand?
+
+How can Foundry support AI/ML governance and model lineage if we embed ML models into customer decisioning?
+
+🧩 Tips During the Presentation
+Listen carefully for "black box" answers — push politely if they don't explain how something actually works.
+
+Focus on operationalization and real-world fit — not just demos.
+
+Ask them for specific examples (especially if they talk about "global banks" or "large insurance companies" using GFCM with Palantir).
+
+🚀 Final Pro Tip
+At the end, you can ask:
+
+"If we choose Palantir, what is the typical technical onboarding timeline for a first major use case (e.g., GFCM)?"
+(to gauge how fast or complex it is in reality.)
+
+
+🧠 1. "How does Palantir Foundry manage semantic versioning of data models across federated systems, especially when source schemas evolve asynchronously?"
+✅ Why this is impressive:
+
+You're thinking about real-world schema drift (source tables changing over time).
+
+You’re signaling you want zero downtime, backward compatibility, and long-term resilience.
+
+Most architects miss asking about semantic versioning — it’s critical when you're federating live systems across countries or business units.
+
+If they handle it well, they should mention things like:
+
+Ontology versioning,
+
+Schema evolution support,
+
+Backward-compatible transforms,
+
+Layered modeling with "frozen snapshots" and "live layers."
+
+🧠 2. "What patterns does Palantir recommend to implement federated computational governance (e.g., decentralized quality checks, domain-specific rules enforcement) without creating centralized bottlenecks?"
+✅ Why this is impressive:
+
+You're showing you understand data mesh and decentralized governance ideas.
+
+You’re thinking beyond data storage — about distributed responsibility, scaling, and organizational design.
+
+You want to know how they let different teams build on the platform safely and independently.
+
+If they handle it well, they might mention:
+
+Local validation layers,
+
+Automated data quality checks (at source),
+
+Policy-as-code enforcement,
+
+Domain-specific transformations (before onboarding into the global ontology),
+
+Self-service onboarding kits for data producers.
+
+📢 Bonus "Polite Trap" Question (if you want to test depth)
+You can ask at the end:
+
+"How would you recommend designing a fallback strategy if entity resolution confidence drops below a threshold at runtime?"
+
+This tests:
+
+Whether they think in probabilistic terms,
+
+Whether they have graceful degradation patterns,
+
+Whether they expose entity confidence scores,
+
+Whether they allow human-in-the-loop or semi-automated corrections.
+
+(Only ask this if they present a lot about entity resolution!)
+
+🎯 In short:
+If you ask even one of these tomorrow, you’ll immediately differentiate yourself as a technical architect who is thinking operationally, at scale, and in future-proof architecture terms.
+
+Smart Questions Cheat Sheet
+🔹 Integration & Connectivity
+How does Foundry integrate with our existing data lakes (Snowflake, Hadoop, Databricks)?
+
+How are schema changes in source systems handled automatically?
+
+How is data freshness managed in federated environments?
+
+🔹 Ontology & Data Modeling
+How customizable and extensible is the ontology?
+
+How does Foundry handle evolving entities (e.g., adding new customer types or relationships)?
+
+(Advanced): How is semantic versioning of data models managed across federated systems?
+
+🔹 Entity Resolution
+What techniques are used for fuzzy matching and deduplication at scale?
+
+How does Foundry avoid false positives/negatives during entity resolution?
+
+(Bonus): How can we design fallback strategies if entity resolution confidence drops below thresholds?
+
+🔹 Governance, Security, Privacy
+How are data access controls applied — table, row, column, or attribute level?
+
+Can fine-grained audit logs integrate with our SIEM/SOC tools?
+
+How does Foundry support GDPR "right to forget" and selective data masking?
+
+(Advanced): What patterns support federated computational governance without central bottlenecks?
+
+🔹 Scalability & Operationalization
+How does Foundry scale horizontally for large datasets and increasing query loads?
+
+What is the typical query response time for operational APIs?
+
+Can customer profiles be queried in real time via APIs?
+
+Can Foundry outputs push back into operational systems (e.g., CRM, Risk Engines)?
+
+🔹 Deployment Models
+SaaS, private cloud, hybrid, or on-premises — what are the deployment options?
+
+How are upgrades and patches handled without disrupting live operations?
+
+🔹 Customization and Extensibility
+How easily can we plug in custom ML models (Python, Spark)?
+
+Can UIs/workflows be customized for different business processes?
+
+🔹 Cost, Licensing, Futureproofing
+How is licensing structured: per user, per data volume, or project-based?
+
+Are there hidden costs for connectors, APIs, or scaling?
+
+How easy is it to export data, metadata, and models if we move out of Palantir?
+
+How open is Foundry for interoperability with other platforms?
+
+🚀 Power Questions to Stand Out
+Semantic Versioning: How do you manage semantic versioning of ontologies when source schemas evolve asynchronously?
+
+Federated Governance: What architecture patterns do you recommend for decentralized quality checks and domain-level rule enforcement?
+
+Entity Resolution Confidence: How do you handle runtime fallback if entity resolution confidence drops below a defined threshold?
+
+🎯 End with Strategic Question
+"If we select Palantir, what’s the typical technical onboarding timeline for a first major use case (like Global Federated Customer Master)?"
+
+(Shows you’re serious about execution, not just evaluation.)
+
