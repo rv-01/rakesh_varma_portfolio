@@ -1,0 +1,26 @@
+🧠 1. How does Palantir manage schema evolution across federated systems without requiring heavy rework in downstream models?
+Why important:
+Real-world source systems change all the time.
+As an architect, I need to know if the platform can handle schema drift gracefully — otherwise, we’ll spend months constantly fixing broken pipelines.
+
+🧠 2. Can you explain how entity resolution works technically, and how confidence scoring and human-in-the-loop correction are handled at scale?
+Why important:
+Entity resolution is the heart of a Global Customer Master.
+I want to know if it’s accurate, explainable, adjustable, and whether operations teams can correct mistakes without opening massive tickets.
+
+🧠 3. How is fine-grained governance implemented — specifically, can you enforce row-level, column-level, and attribute-level security policies across federated data?
+Why important:
+Because governance is critical — especially for customer data (GDPR, CCPA, banking regulations).
+I need to know if they have granular control, not just "big-bucket" access rights.
+
+🧠 4. What is your recommended architecture for supporting real-time API access to the unified customer profiles, and how do you ensure freshness, consistency, and low latency?
+Why important:
+This tests if the GFCM is only batch-oriented (good for reports) or truly operational (good for live apps like onboarding, fraud detection, marketing personalization).
+Low latency and data freshness are essential for real-world impact.
+
+🧠 5. If we invest into Palantir deeply, how easy or hard would it be to migrate our data models, pipelines, and ontologies if we ever want to move off the platform?
+Why important:
+Vendor lock-in risk is real.
+Even if Palantir is amazing, good architects always plan an exit strategy.
+If they say "no way" or "very hard", you know you need to think carefully about dependency.
+
