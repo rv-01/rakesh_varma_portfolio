@@ -1,0 +1,88 @@
+🎯 Slide Title:
+MetaXtract: Automating Oracle SQL Metadata Extraction
+
+🔄 Comparison Table
+
+Aspect	Manual Approach (Before)	Proposed Approach (MetaXtract)
+Metadata Extraction	Manual parsing of SQL files	Automatic extraction from CREATE TABLE and CREATE VIEW
+Duplicate Detection	Done manually or often missed	Automated duplicate detection based on DB, Schema, Table, Column
+Error Reporting	Not systematic; issues found late in testing	Errors logged and exported to JSON/CSV instantly
+Output Format	Manual notes, Excel sheets	Structured JSON & CSV output with configurable field order
+View Handling	Complex to trace view-column mapping manually	Resolves view columns to source tables with type & length
+Scalability	Painful with large number of files	Handles folders and subfolders recursively
+Customizability	Rigid process, hard to adapt	Config-driven (field order, easy future enhancements)
+Speed & Accuracy	Slow, error-prone	Fast, accurate, and consistent every run
+✅ Benefits of MetaXtract
+80%+ time savings by automating metadata extraction and validation
+
+Improved accuracy by reducing manual copy-paste and interpretation errors
+
+Standardized output for easy consumption by downstream tools (catalogs, Excel, audits)
+
+Audit-ready: Errors and issues logged in a transparent, structured format
+
+Pluggable and extensible architecture for future enhancements (e.g., PK detection, SQL parsing libraries)
+
+Developer & Architect friendly — fits directly into your Git/CI/CD workflows
+
+💡 Conclusion
+MetaXtract replaces error-prone, time-consuming manual SQL reviews
+with an automated, scalable, and configurable solution for metadata extraction.
+
+Result: Higher quality metadata. Faster delivery. Happier developers. ✅
+
+Slide Design Tip:
+To visualize this:
+
+Use a side-by-side comparison table in the middle (Manual vs MetaXtract)
+
+Add a Benefits bullet box below
+
+Add your tool logo and tagline at the top (e.g., "MetaXtract: Automate. Validate. Accelerate.")
+
+Would you like me to also generate this as a PowerPoint slide or PDF one-pager design?
+I can do that visually too — just say "generate slide" and I’ll share it!
+
+
+
+
+
+
+
+
+You said:
+generate slide
+
+
+ChatGPT said:
+Image created
+
+
+
+
+Rate this image
+
+
+Here is your generated slide. You can download it below:
+
+📥 Download Slide – MetaXtract One-Pager
+
+
+
+
+You said:
+give me some diagram or floe
+
+
+ChatGPT said:
+Image created
+
+
+
+
+Rate this image
+
+
+
+
+
