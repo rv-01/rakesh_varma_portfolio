@@ -1,0 +1,99 @@
+data_profiler_app/
+│
+├── app.py
+├── templates/
+│   └── profile.html
+├── static/
+│   └── css/
+│       └── style.css
+└── requirements.txt
+
+
+app.py
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def profile_dashboard():
+    # Static data placeholder (replace with real profiling results)
+    columns = [
+        {"name": "ID", "type": "SmallInt", "distinct": 200, "mean": "5,470,037", "stddev": "2,592,394", "frequency": [(85929, 14), (82949, 13)]},
+        {"name": "Name", "type": "Varchar(7)", "distinct": 4, "mean": "4.444", "frequency": [("Eve", 200), ("Bob", 190)]},
+        {"name": "Age", "type": "TinyInt", "distinct": 48, "mean": "4.0", "frequency": [("Missing", 326), ("3.0", 264)]},
+        {"name": "Salary", "type": "Decimal(8,2)", "distinct": 999, "mean": "77,558.977", "frequency": [(270185.26, 8), (105925.62, 8)]},
+        {"name": "JoinDate", "type": "Date", "distinct": 101, "mean": "2023-06-27", "frequency": [("Missing", 256), ("2023-08-03", 20)]},
+        {"name": "Department", "type": "Varchar(11)", "distinct": 5, "mean": "6.738", "frequency": [("HR", 190), ("Engineering", 180)]}
+    ]
+    return render_template("profile.html", columns=columns)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+templates/profile.hrml
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Profile Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h2>Data Profile Summary</h2>
+    <div class="profile-container">
+        {% for col in columns %}
+        <div class="column-profile">
+            <h3>{{ col.name }}</h3>
+            <p><strong>Type:</strong> {{ col.type }}</p>
+            <p><strong>Distinct Values:</strong> {{ col.distinct }}</p>
+            <p><strong>Mean:</strong> {{ col.mean }}</p>
+            <p><strong>Std Dev:</strong> {{ col.stddev if col.stddev else 'N/A' }}</p>
+            <div class="bar-chart">
+                {% for val, count in col.frequency %}
+                <div class="bar" style="width: {{ count * 3 }}px;">
+                    {{ val }} ({{ count }})
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+
+static/css/style.css
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.column-profile {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.bar-chart .bar {
+    background-color: #2196F3;
+    color: #fff;
+    margin-bottom: 5px;
+    padding: 3px;
+}
+
+requirements.txt
+
+Flask==2.2.5
+
+
+
